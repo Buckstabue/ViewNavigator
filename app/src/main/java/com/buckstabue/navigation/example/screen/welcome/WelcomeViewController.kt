@@ -4,11 +4,11 @@ import android.app.Activity
 import android.widget.LinearLayout
 import com.buckstabue.navigation.example.R
 import com.buckstabue.viewnavigator.EmptyScreenArgs
-import com.buckstabue.viewnavigator.view.ViewController
+import com.buckstabue.viewnavigator.view.StatelessViewController
 
 class WelcomeViewController(
     activity: Activity
-) : ViewController<EmptyScreenArgs, LinearLayout>(EmptyScreenArgs, activity) {
+) : StatelessViewController<EmptyScreenArgs, LinearLayout>(EmptyScreenArgs, activity) {
 
     override fun createContentView(): LinearLayout {
         return inflateView(R.layout.welcome)

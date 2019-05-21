@@ -7,7 +7,7 @@ import com.buckstabue.viewnavigator.view.ViewController
 class BackToCommand : ViewRouterCommand {
     override fun execute(
         container: ViewGroup,
-        screenChain: MutableList<ViewController<*, *>>,
+        screenChain: MutableList<ViewController<*, *, *>>,
         activity: Activity
     ) {
     }

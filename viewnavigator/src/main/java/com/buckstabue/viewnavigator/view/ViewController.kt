@@ -8,27 +8,53 @@ import com.buckstabue.viewnavigator.ScreenArgs
 
 /**
  * Lightweight wrapper around android View class.
- * Like android fragments, but more reliable, it's a little more difficult to break this class.
+ * It's similar to android fragments. This class will be released whenever a new screen opened,
+ * only saved data will be restored.
  * Navigation is decoupled and placed in Router/Navigator classes
  */
-abstract class ViewController<Args : ScreenArgs, ViewType : View>(
+abstract class ViewController<Args : ScreenArgs, ViewType : View, State : Any>(
     protected val args: ScreenArgs,
-    protected val activity: Activity
+    private val activity: Activity
 ) {
-    private var view: ViewType? = null
+    protected val view: ViewType = createContentView()
 
     abstract fun createContentView(): ViewType
 
-    open fun onCreate() {
+    /**
+     * Called on creation/restoring. It's called only once
+     */
+    open fun onCreate(state: State?) {
     }
 
-    open fun onPause() {
-    }
-
+    /**
+     * Called when the host activity is resumed
+     */
     open fun onResume() {
     }
 
+    /**
+     * Called when the host activity is paused
+     */
+    open fun onPause() {
+    }
+
+    /**
+     * Called before destroying this view controller to persist state which will be restored when user navigates back
+     * to this screen
+     */
+    abstract fun onSaveState(): State?
+
+    /**
+     * Called before destroying this view controller
+     */
     open fun onDestroy() {
+    }
+
+    /**
+     * @return whether the event was processed or not
+     */
+    open fun onBackPressed(): Boolean {
+        return false
     }
 
     @Suppress("UNCHECKED_CAST")

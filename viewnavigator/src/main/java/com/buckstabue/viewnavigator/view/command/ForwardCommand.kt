@@ -10,7 +10,7 @@ class ForwardCommand(
 ) : ViewRouterCommand {
     override fun execute(
         container: ViewGroup,
-        screenChain: MutableList<ViewController<*, *>>,
+        screenChain: MutableList<ViewController<*, *, *>>,
         activity: Activity
     ) {
         val viewController = screen.createViewController(activity)

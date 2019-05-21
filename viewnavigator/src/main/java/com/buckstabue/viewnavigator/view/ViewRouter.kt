@@ -7,7 +7,7 @@ internal class ViewRouter(
     private val commandExecutor: ViewNavigator.RouterCommandExecutor
 ) : Router {
     override fun goBack() {
-        commandExecutor.execute(BackToCommand())
+        commandExecutor.execute(BackCommand())
     }
 
     override fun goBackWithResult() {
