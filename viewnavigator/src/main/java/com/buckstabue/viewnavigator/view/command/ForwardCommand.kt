@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import com.buckstabue.viewnavigator.view.ViewController
 import com.buckstabue.viewnavigator.view.ViewScreen
 
-class ForwardCommand(
+internal class ForwardCommand(
     private val screen: ViewScreen
 ) : ViewRouterCommand {
     override fun execute(

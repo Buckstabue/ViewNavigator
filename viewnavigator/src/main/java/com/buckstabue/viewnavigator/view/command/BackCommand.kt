@@ -4,7 +4,7 @@ import android.app.Activity
 import android.view.ViewGroup
 import com.buckstabue.viewnavigator.view.ViewController
 
-class BackCommand : ViewRouterCommand {
+internal class BackCommand : ViewRouterCommand {
     override fun execute(
         container: ViewGroup,
         screenChain: MutableList<ViewController<*, *, *>>,
