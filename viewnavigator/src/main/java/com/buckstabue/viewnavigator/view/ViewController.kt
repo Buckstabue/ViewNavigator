@@ -12,13 +12,13 @@ import com.buckstabue.viewnavigator.ScreenArgs
  * only saved data will be restored.
  * Navigation is decoupled and placed in Router/Navigator classes
  */
-abstract class ViewController<Args : ScreenArgs, ViewType : View, State : Any>(
+abstract class ViewController<Args : ScreenArgs, State : Any>(
     protected val args: ScreenArgs,
     private val activity: Activity
 ) {
-    protected val view: ViewType = createContentView()
+    protected val view: View = createContentView()
 
-    abstract fun createContentView(): ViewType
+    abstract fun createContentView(): View
 
     /**
      * Called on creation/restoring. It's called only once
@@ -58,7 +58,7 @@ abstract class ViewController<Args : ScreenArgs, ViewType : View, State : Any>(
     }
 
     @Suppress("UNCHECKED_CAST")
-    protected fun inflateView(@LayoutRes layoutResId: Int): ViewType {
-        return LayoutInflater.from(activity).inflate(layoutResId, null, false) as ViewType
+    protected open fun inflateView(@LayoutRes layoutResId: Int): View {
+        return LayoutInflater.from(activity).inflate(layoutResId, null, false)
     }
 }

@@ -6,5 +6,5 @@ import android.app.Activity
  * Encapsulates the creation of a view controller.
  */
 abstract class ViewScreen {
-    abstract fun createViewController(activity: Activity): ViewController<*, *, *>
+    abstract fun createViewController(activity: Activity): ViewController<*, *>
 }

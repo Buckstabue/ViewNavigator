@@ -14,7 +14,7 @@ internal interface ViewRouterCommand : RouterCommand {
      */
     fun execute(
         container: ViewGroup,
-        screenChain: MutableList<ViewController<*, *, *>>,
+        screenChain: MutableList<ViewController<*, *>>,
         activity: Activity
     )
 }

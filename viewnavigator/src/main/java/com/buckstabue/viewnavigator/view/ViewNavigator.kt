@@ -11,8 +11,8 @@ class ViewNavigator(
     private val container: ViewGroup,
     private val activity: Activity
 ) : Navigator {
-    private val screenChain = mutableListOf<ViewController<*, *, *>>()
-    private val currentViewController: ViewController<*, *, *>? = null
+    private val screenChain = mutableListOf<ViewController<*, *>>()
+    private val currentViewController: ViewController<*, *>? = null
     private var lifecycleState = ViewNavigatorState.PAUSED
     private val routerCommandExecutor = RouterCommandExecutor()
     private val router = ViewRouter(routerCommandExecutor)
