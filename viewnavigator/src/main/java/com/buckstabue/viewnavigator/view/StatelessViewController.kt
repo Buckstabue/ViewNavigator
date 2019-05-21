@@ -1,12 +1,11 @@
 package com.buckstabue.viewnavigator.view
 
 import android.app.Activity
-import android.view.View
 import com.buckstabue.viewnavigator.ScreenArgs
 
-abstract class StatelessViewController<Args : ScreenArgs, ViewType : View>(
+abstract class StatelessViewController<Args : ScreenArgs>(
     args: ScreenArgs, activity: Activity
-) : ViewController<Args, ViewType, Nothing>(args, activity) {
+) : ViewController<Args, Nothing>(args, activity) {
 
     open fun onCreate() {
     }
